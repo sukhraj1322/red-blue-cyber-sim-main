@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 5%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 142 76% 36%;
+
+    --radius: 0.5rem;
+
+    /* Red Team Colors */
+    --red-team: 0 84% 60%;
+    --red-team-dark: 0 84% 45%;
+    --red-team-glow: 0 84% 60%;
+    
+    /* Blue Team Colors */
+    --blue-team: 199 89% 48%;
+    --blue-team-dark: 199 89% 38%;
+    --blue-team-glow: 199 89% 48%;
+
+    /* Cyber Effects */
+    --cyber-green: 142 76% 36%;
+    --cyber-yellow: 45 93% 47%;
+    
+    /* Gradients */
+    --gradient-red: linear-gradient(135deg, hsl(0 84% 60%) 0%, hsl(0 84% 35%) 100%);
+    --gradient-blue: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(199 89% 28%) 100%);
+    --gradient-cyber: linear-gradient(135deg, hsl(142 76% 36%) 0%, hsl(142 76% 20%) 100%);
+    
+    /* Shadows */
+    --shadow-red: 0 10px 40px -10px hsl(0 84% 60% / 0.5);
+    --shadow-blue: 0 10px 40px -10px hsl(199 89% 48% / 0.5);
+    --shadow-glow: 0 0 30px hsl(142 76% 36% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Animations */
+  @keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+  }
+
+  @keyframes pulse-red {
+    0%, 100% { box-shadow: 0 0 20px hsl(0 84% 60% / 0.4); }
+    50% { box-shadow: 0 0 40px hsl(0 84% 60% / 0.8); }
+  }
+
+  @keyframes pulse-blue {
+    0%, 100% { box-shadow: 0 0 20px hsl(199 89% 48% / 0.4); }
+    50% { box-shadow: 0 0 40px hsl(199 89% 48% / 0.8); }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scan-line {
+    0% { top: 0%; }
+    100% { top: 100%; }
+  }
+
+  .animate-glitch {
+    animation: glitch 0.3s infinite;
+  }
+
+  .animate-pulse-red {
+    animation: pulse-red 2s infinite;
+  }
+
+  .animate-pulse-blue {
+    animation: pulse-blue 2s infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.4s ease-out;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
